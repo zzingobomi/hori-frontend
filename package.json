@@ -6,7 +6,7 @@
     "dev": "next dev -p 32000",
     "build": "next build",
     "build:e2e": "cp -n example.env.local .env.local && next build",
-    "start": "next start",
+    "start": "next start -p 32000",
     "lint": "next lint",
     "prepare": "is-ci || husky",
     "release": "release-it"
