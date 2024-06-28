@@ -5,6 +5,11 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import MuiLink from "@mui/material/Link";
 import { Trans } from "react-i18next/TransWithoutContext";
+import dynamic from "next/dynamic";
+
+const CesiumViewer = dynamic(() => import("@/components/cesium/CesiumViewer"), {
+  ssr: false,
+});
 
 type Props = {
   params: { language: string };
@@ -31,6 +36,9 @@ export default async function Home({ params }: Props) {
         direction="column"
         sx={{ height: "90vh", justifyContent: "space-between" }}
       >
+        <Grid item sx={{ height: "100%", width: "100%" }}>
+          <CesiumViewer />
+        </Grid>
         <Grid item>
           <Typography variant="h3" data-testid="home-title" gutterBottom>
             {t("title")}
